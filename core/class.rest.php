@@ -4,8 +4,8 @@ class Rest {
 	protected $prefix			= "REST_";
 	protected $charset_collate 	= "utf8_general_ci";
  	private $db_name 			= "hiremei1_db";
- 	private $user				= "hiremei1";
- 	private $password			= "046NzZdt3m";
+ 	private $user				= "username";
+ 	private $password			= "**********";
 
 
 	protected function dbConnect($action, $query) {
