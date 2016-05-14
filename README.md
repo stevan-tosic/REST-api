@@ -1,4 +1,6 @@
 # REST-api
 
 
-ovde tekst
+This is code example that is used on 
+
+http://api.hiremein.rs/?documentation 
