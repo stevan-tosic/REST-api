@@ -1,6 +1,6 @@
 <?php
 
-class Users extends Rest {  
+class Users extends DbCommonConnect {  
 
 	private function table() { 
 		return $this->tableName("users");

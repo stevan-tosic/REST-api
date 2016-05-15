@@ -1,24 +1,28 @@
 <?php
-//error_reporting(E_ALL);
+require_once ('core/class.helper.php');
+$helper = new Helper();
+$helper->testStart();
+require_once ('core/class.documentation.php');
+new Documentation();
 //clearstatcache();
+//$helper->header();
+//header("Content-Type:application/json");
 
-header("Content-Type:application/json");
-
-require_once ('core/class.rest.php');
+require_once ('core/class.DbCommonConnect.php');
 require_once ('core/class.users.php');
 require_once ('core/class.books.php');	
 
-$books = new Books; 
+$books = new Books(); 
 $users = new Users();
 
 $users->insertDataIntoDB($_POST['username'], $_POST['password']);
 
 $offset 	= ( ($curr_page - 1) * 10);
 
-if ( isset($_GET['id']) && !is_null($_GET['id']) ) { 
+if ($helper->getRequest('id')) { 
 	$books->method_GET_response($_GET['id'], "getAuthor");
 } 
-if ( isset($_GET['page']) && !is_null($_GET['page']) ) {
+if ($helper->getRequest('page')) {
 	$books->method_GET_response($_GET['page'], "getDataPerPage");
 } 
 if ( $_GET['rows'] === "all") {
@@ -37,4 +41,5 @@ if ( isset($_POST['del']) && !is_null($_POST['del'])  ) {
 	$books->deleteBookData($_POST['del']);
 }
 
+$helper->testEnd();
 ?>
