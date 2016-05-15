@@ -5,8 +5,7 @@ $helper->testStart();
 require_once ('core/class.documentation.php');
 new Documentation();
 //clearstatcache();
-//$helper->header();
-//header("Content-Type:application/json");
+$helper->header();
 
 require_once ('core/class.DbCommonConnect.php');
 require_once ('core/class.users.php');
